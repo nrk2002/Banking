@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Management System</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #eef2f3;
+    color: #333;
+    text-align: center;
+}
+
+/* Navigation Bar */
+nav {
+    background: #002244;
+    padding: 15px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: #f4d03f;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+/* Hero Section */
+.hero {
+    background: url('https://source.unsplash.com/1600x900/?banking,finance') no-repeat center center/cover;
+    color: white;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.hero h1, .hero p {
+    position: relative;
+    z-index: 1;
+    animation: slideIn 1.5s ease-in-out;
+}
+
+.hero h1 {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 20px;
+    width: 60%;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* About Section */
+.about-section {
+    padding: 50px 20px;
+    background: #ffffff;
+    text-align: center;
+    animation: fadeUp 1.5s ease-in-out;
+}
+
+.about-section h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #002244;
+}
+
+.about-section p {
+    font-size: 18px;
+    color: #555;
+    width: 70%;
+    margin: auto;
+    line-height: 1.6;
+}
+
+@keyframes fadeUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Banking Info Section */
+.info-section {
+    padding: 50px 20px;
+    background: #eef2f3;
+    text-align: center;
+}
+
+.info-section h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #002244;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.info-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.info-box {
+    width: 300px;
+    background: #f4d03f;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+    animation: fadeUp 1.5s ease-in-out;
+}
+
+.info-box:hover {
+    transform: scale(1.05);
+    background: #ffd700;
+}
+
+.info-box h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #002244;
+}
+
+.info-box p {
+    font-size: 16px;
+    color: #333;
+}
+.contact-section {
+    padding: 50px 20px;
+    background: #ffffff;
+    text-align: center;
+    animation: fadeUp 1.5s ease-in-out;
+}
+
+.contact-section h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #002244;
+}
+
+.contact-section form {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-section input, 
+.contact-section textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #002244;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.contact-section button {
+    background: #f4d03f;
+    color: #002244;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.contact-section button:hover {
+    background: #ffd700;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-section form {
+        width: 90%;
+    }
+}
+/* Footer */
+.footer {
+    background: #002244;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    margin-top: 30px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        width: 90%;
+        font-size: 16px;
+    }
+
+    .about-section p {
+        width: 90%;
+    }
+
+    .info-box {
+        width: 100%;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero" id="home">
+        <h1>Welcome to Banking Management System</h1>
+        <p>Secure, Fast, and Reliable Banking Services at Your Fingertips.</p>
+    </div>
+    <div class="about-section" id="about">
+        <h2>About Our Banking System</h2>
+        <p>Our Banking Management System is designed to provide users with a seamless and secure banking experience. With cutting-edge technology, we ensure that all transactions are protected, fast, and easy to use. Whether you're managing your savings, transferring funds, or paying bills, our platform is built for your convenience.</p>
+    </div>
+    <div class="info-section">
+        <h2>Why Choose Our Banking System?</h2>
+        <div class="info-boxes">
+            <div class="info-box">
+                <h3>🔐 Secure Transactions</h3>
+                <p>We use advanced encryption to keep your financial data safe.</p>
+            </div>
+            <div class="info-box">
+                <h3>⚡ Fast & Easy</h3>
+                <p>Transfer money, pay bills, and manage accounts in seconds.</p>
+            </div>
+            <div class="info-box">
+                <h3>🌍 Global Access</h3>
+                <p>Manage your finances anywhere, anytime with our online platform.</p>
+            </div>
+        </div>
+    </div>
+    <div class="contact-section" id="contact">
+        <h2>Contact Us</h2>
+        <form action="contact.php" method="post">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+    
+    <div class="footer">
+        <p>© 2025 Banking Management System | Secure & Trusted Banking</p>
+    </div>
+
+</body>
+</html>
