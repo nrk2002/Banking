@@ -19,6 +19,27 @@ if ($row['attempts'] > 3) {
     exit();
 }
 
+// Google reCAPTCHA Secret Key (Replace with your actual secret key)
+$recaptcha_secret = "6LeyxvwqAAAAAAOQJYNJroYAfpypzKFQ9yjLvra7";
+
+// Check if the reCAPTCHA response is set
+if (!isset($_POST['g-recaptcha-response'])) {
+    echo "<script>alert('reCAPTCHA verification failed!'); window.location.href='login.html';</script>";
+    exit();
+}
+
+// Verify reCAPTCHA with Google
+$recaptcha_response = $_POST['g-recaptcha-response'];
+$verify_url = "https://www.google.com/recaptcha/api/siteverify?secret=$recaptcha_secret&response=$recaptcha_response&remoteip=$ip_address";
+
+$response = file_get_contents($verify_url);
+$response_keys = json_decode($response, true);
+
+if (!$response_keys["success"]) {
+    echo "<script>alert('reCAPTCHA verification failed!'); window.location.href='login.html';</script>";
+    exit();
+}
+
 // Process Login
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $conn->real_escape_string($_POST["email"]);
